@@ -1,0 +1,708 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Psyche.Tourlife | เพจจิตวิทยา & วิทยากรอิสระ</title>
+    
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    
+    <!-- Google Fonts: Prompt (Thai sans-serif without loops) -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Tailwind Config for Brand CI -->
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        psyche: {
+                            bg: '#FFF4EA',      // Primary พื้นหลัง
+                            navy: '#2B208B',    // Secondary ตัวหนังสือ/องค์ประกอบ
+                            pink: '#D77F81',    // Highlight
+                            orange: '#D65D12'   // หัวข้อหลัก
+                        }
+                    },
+                    fontFamily: {
+                        sans: ['Helvetica', 'Arial', 'Prompt', 'sans-serif'],
+                    }
+                }
+            }
+        }
+    </script>
+
+    <style>
+        body {
+            background-color: #FFF4EA;
+            color: #2B208B;
+            scroll-behavior: smooth;
+        }
+        .glass-nav {
+            background: rgba(255, 244, 234, 0.85);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-bottom: 1px solid rgba(43, 32, 139, 0.1);
+        }
+        .text-shadow-light {
+            text-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+        }
+        /* Custom Scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #FFF4EA; }
+        ::-webkit-scrollbar-thumb { background: #D77F81; border-radius: 4px; }
+        ::-webkit-scrollbar-thumb:hover { background: #D65D12; }
+    </style>
+</head>
+<body class="font-sans antialiased selection:bg-psyche-pink selection:text-white">
+
+    <!-- MAIN WEBSITE CONTENT -->
+    <div id="main-content">
+        <!-- Navigation -->
+        <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
+            <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
+                <!-- Logo -->
+                <a href="#home" class="flex items-center">
+                    <img src="✅ Logo no bg.png" alt="Psyche Tourlife" class="h-16 w-auto object-contain drop-shadow-sm" onerror="this.onerror=null; this.src='https://placehold.co/400x150/FFF4EA/2B208B?text=psyche.tourlife&font=Prompt';">
+                </a>
+                
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wide text-psyche-navy">
+                    <a href="#home" class="hover:text-psyche-orange transition">หน้าแรก</a>
+                    <a href="#articles" class="hover:text-psyche-orange transition">บทความ</a>
+                    <a href="#services" class="hover:text-psyche-orange transition">ผลงานของเรา</a>
+                    <a href="#about" class="hover:text-psyche-orange transition">เกี่ยวกับเพจ</a>
+                    <a href="https://lin.ee/TGHyG8K" target="_blank" class="px-5 py-2.5 bg-psyche-orange text-white rounded-full hover:bg-psyche-navy hover:shadow-lg transition-all duration-300">ติดต่องาน</a>
+                </div>
+                
+                <!-- Mobile Menu Button -->
+                <button class="md:hidden text-psyche-navy p-2" id="menu-btn">
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                    </svg>
+                </button>
+            </div>
+            
+            <!-- Mobile Dropdown -->
+            <div id="mobile-menu" class="hidden md:hidden bg-psyche-bg border-t border-psyche-pink/20 p-6 flex flex-col space-y-5 shadow-xl">
+                <a href="#home" class="text-lg font-medium text-psyche-navy">หน้าแรก</a>
+                <a href="#articles" class="text-lg font-medium text-psyche-navy">บทความ</a>
+                <a href="#services" class="text-lg font-medium text-psyche-navy">ผลงานของเรา</a>
+                <a href="#about" class="text-lg font-medium text-psyche-navy">เกี่ยวกับเพจ</a>
+                <a href="https://lin.ee/TGHyG8K" target="_blank" class="text-lg font-bold text-psyche-orange">ติดต่องาน</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <header id="home" class="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden flex flex-col items-center justify-center min-h-[90vh]">
+            <!-- Decorative blobs based on CI -->
+            <div class="absolute top-20 -left-20 w-72 h-72 bg-psyche-pink rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
+            <div class="absolute top-40 -right-20 w-72 h-72 bg-psyche-orange rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
+            <div class="absolute -bottom-8 left-40 w-72 h-72 bg-psyche-navy rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-4000"></div>
+
+            <div class="relative z-10 text-center max-w-4xl mx-auto">
+                <span class="inline-block py-1 px-3 rounded-full bg-psyche-orange text-white font-semibold text-sm mb-6 tracking-wider shadow-sm">PSYCHOLOGY & SELF-DISCOVERY</span>
+                <h1 class="text-5xl md:text-7xl font-bold text-psyche-navy mb-6 leading-tight tracking-tight">
+                    ท่องไปใน<span class="text-psyche-orange">โลกของจิตใจ</span>
+                </h1>
+                <p class="text-lg md:text-xl text-psyche-navy/80 mb-10 max-w-2xl mx-auto font-light leading-relaxed">
+                    psyche.tourlife — เพจสื่อสารจิตวิทยาและสุขภาพใจ พื้นที่สำรวจตัวตน เพื่อการเติบโตภายใน โดยนักจิตวิทยา
+                </p>
+                <div class="flex flex-col sm:flex-row justify-center items-center gap-4">
+                    <a href="https://tr.ee/PuriphatPortfolio2025" target="_blank" class="w-full sm:w-auto text-center inline-block bg-psyche-navy text-white px-8 py-4 rounded-full hover:bg-psyche-orange transition-colors duration-300 font-medium shadow-lg hover:shadow-xl">
+                        ดูผลงาน
+                    </a>
+                    <a href="https://www.facebook.com/psyche.tourlife/" target="_blank" class="w-full sm:w-auto text-center inline-flex justify-center items-center border-2 border-psyche-navy text-psyche-navy px-6 py-4 rounded-full hover:bg-psyche-navy hover:text-white transition-colors duration-300 font-medium">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                        Facebook
+                    </a>
+                    <a href="https://www.instagram.com/psyche.tourlife/" target="_blank" class="w-full sm:w-auto text-center inline-flex justify-center items-center border-2 border-psyche-navy text-psyche-navy px-6 py-4 rounded-full hover:bg-psyche-pink hover:border-psyche-pink hover:text-white transition-colors duration-300 font-medium">
+                        <svg class="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" /></svg>
+                        Instagram
+                    </a>
+                </div>
+            </div>
+        </header>
+
+        <!-- AI Mind Explorer Section -->
+        <section id="ai-explorer" class="py-16 px-6 bg-psyche-pink/10 relative overflow-hidden">
+            <div class="max-w-4xl mx-auto bg-white rounded-3xl p-8 md:p-12 shadow-xl border border-psyche-pink/20 relative z-10">
+                <div class="text-center mb-8">
+                    <span class="inline-block py-1 px-3 rounded-full bg-psyche-orange/10 text-psyche-orange font-semibold text-xs mb-3 tracking-wider border border-psyche-orange/20">✨ POWERED BY AI</span>
+                    <h2 class="text-3xl md:text-4xl font-bold text-psyche-navy mb-4">พื้นที่สำรวจใจ</h2>
+                    <p class="text-psyche-navy/70">วันนี้คุณรู้สึกอย่างไร? พิมพ์เล่าให้เราฟังสั้นๆ ได้เลยนะ :)</p>
+                </div>
+                
+                <div class="space-y-4">
+                    <textarea id="ai-user-input" rows="3" placeholder="เช่น วันนี้รู้สึกเหนื่อยล้าจังเลย งานเยอะมาก..." class="w-full px-5 py-4 border border-psyche-navy/20 rounded-2xl focus:ring-2 focus:ring-psyche-pink focus:outline-none resize-none bg-psyche-bg/50"></textarea>
+                    <button onclick="exploreMind()" id="btn-explore" class="w-full sm:w-auto px-8 py-3 bg-psyche-navy text-white rounded-xl font-bold hover:bg-psyche-pink transition shadow-md flex items-center justify-center mx-auto">
+                        ✨ รับมุมมองและคำถามสำรวจใจ
+                    </button>
+                </div>
+
+                <div id="ai-response-container" class="mt-8 hidden">
+                    <div class="p-6 bg-psyche-bg rounded-2xl border-l-4 border-psyche-orange">
+                        <p id="ai-response-text" class="text-psyche-navy leading-relaxed"></p>
+                    </div>
+                </div>
+            </div>
+            <div class="absolute -right-20 -bottom-20 w-64 h-64 bg-psyche-orange/10 rounded-full blur-3xl"></div>
+        </section>
+
+        <!-- Articles Section (Dynamic) -->
+        <section id="articles" class="py-24 px-6 bg-white/50 backdrop-blur-sm border-y border-psyche-navy/5">
+            <div class="max-w-7xl mx-auto">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                    <div>
+                        <span class="text-psyche-pink font-bold tracking-widest uppercase text-sm mb-2 block">Latest Content</span>
+                        <h2 class="text-3xl md:text-5xl font-bold text-psyche-orange">บทความจิตวิทยา</h2>
+                    </div>
+                    <a href="https://www.facebook.com/psyche.tourlife/" target="_blank" class="mt-4 md:mt-0 text-psyche-navy font-semibold hover:text-psyche-orange transition group flex items-center">
+                        ดูทั้งหมดบน Facebook 
+                        <svg class="w-4 h-4 ml-1 transform group-hover:translate-x-1 transition-transform" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </a>
+                </div>
+
+                <!-- Articles Grid (Populated by Firebase) -->
+                <div id="public-articles-grid" class="grid md:grid-cols-3 gap-8">
+                    <!-- Loading State -->
+                    <div class="col-span-3 text-center py-12 text-psyche-navy/50">
+                        <svg class="animate-spin h-8 w-8 mx-auto mb-4 text-psyche-pink" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                            <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                            <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                        </svg>
+                        กำลังโหลดข้อมูลบทความ...
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Services Section -->
+        <section id="services" class="py-24 px-6 bg-psyche-bg">
+            <div class="max-w-7xl mx-auto">
+                <div class="text-center mb-16">
+                    <span class="text-psyche-pink font-bold tracking-widest uppercase text-sm mb-2 block">What We Do</span>
+                    <h2 class="text-3xl md:text-5xl font-bold text-psyche-orange mb-4">บริการและผลงานของเรา</h2>
+                    <div class="h-1 w-20 bg-psyche-pink mx-auto rounded-full"></div>
+                </div>
+
+                <div class="grid md:grid-cols-3 gap-10">
+                    <!-- Service 1 -->
+                    <div class="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition duration-300 border border-psyche-navy/5 group">
+                        <div class="w-16 h-16 bg-psyche-pink/10 text-psyche-pink rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-psyche-navy">Psychology Content</h3>
+                        <p class="text-psyche-navy/70 mb-6 leading-relaxed">บทความและคอนเทนต์จิตวิทยาที่ย่อยง่าย เชื่อมโยงกับชีวิตประจำวัน เพื่อความเข้าใจตัวเองและผู้อื่น</p>
+                        <a href="#articles" class="text-psyche-orange font-semibold flex items-center group-hover:text-psyche-pink transition">
+                            อ่านบทความ <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- Service 2 -->
+                    <div class="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition duration-300 border border-psyche-navy/5 group">
+                        <div class="w-16 h-16 bg-psyche-orange/10 text-psyche-orange rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-psyche-navy">Freelance Speaker</h3>
+                        <p class="text-psyche-navy/70 mb-6 leading-relaxed">บริการวิทยากรอิสระ บรรยายให้ความรู้ด้านจิตวิทยา การพัฒนาตัวเอง และสุขภาพจิตสำหรับองค์กรและสถาบันต่างๆ</p>
+                        <a href="https://lin.ee/TGHyG8K" target="_blank" class="text-psyche-orange font-semibold flex items-center group-hover:text-psyche-pink transition">
+                            ติดต่องานวิทยากร <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+
+                    <!-- Service 3 -->
+                    <div class="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition duration-300 border border-psyche-navy/5 group">
+                        <div class="w-16 h-16 bg-psyche-navy/10 text-psyche-navy rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
+                            <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
+                        </div>
+                        <h3 class="text-2xl font-bold mb-3 text-psyche-navy">Workshop & Process</h3>
+                        <p class="text-psyche-navy/70 mb-6 leading-relaxed">จัดกระบวนการเรียนรู้ (Facilitator) และพื้นที่ปลอดภัย เพื่อให้ผู้เข้าร่วมได้สำรวจและสะท้อนมุมมองในจิตใจ</p>
+                        <a href="https://lin.ee/TGHyG8K" target="_blank" class="text-psyche-orange font-semibold flex items-center group-hover:text-psyche-pink transition">
+                            สอบถามข้อมูล <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M14 5l7 7m0 0l-7 7m7-7H3"></path></svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- About Section -->
+        <section id="about" class="py-24 px-6 bg-white border-y border-psyche-navy/5">
+            <div class="max-w-4xl mx-auto text-center">
+                <img src="✅ Logo no bg.png" alt="Psyche Tourlife Icon" class="h-16 mx-auto mb-8 opacity-100" onerror="this.onerror=null; this.style.display='none';">
+                <h2 class="text-3xl md:text-5xl font-bold text-psyche-navy mb-8 leading-tight">
+                    "เล่าจิตวิทยา<br>
+                    <span class="text-psyche-orange">ผ่านมุมมองนักจิตวิทยา</span>"
+                </h2>
+                <p class="text-lg text-psyche-navy/80 leading-relaxed mb-10 font-light">
+                    psyche.tourlife ถูกสร้างขึ้น เพื่อเป็นพื้นที่แบ่งปันเรื่องราวความรู้ทางจิตวิทยา เปิดโลกของอาชีพนักจิตวิทยาผ่านเลนส์ที่เข้าถึงได้ง่าย และคอยเป็นเพื่อนร่วมเดินทางของทุกคน บนเส้นทางของจิตวิทยาไปด้วยกัน
+                </p>
+            </div>
+        </section>
+
+        <!-- Contact Section -->
+        <section id="contact" class="py-24 px-6 bg-psyche-navy text-white">
+            <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-start">
+                <div>
+                    <h2 class="text-4xl font-bold mb-6 text-psyche-bg">ติดต่องาน & สอบถามข้อมูล</h2>
+                    <p class="text-psyche-bg/80 mb-10 leading-relaxed font-light">
+                        สนใจเชิญเป็นวิทยากรบรรยาย จัดกระบวนการเรียนรู้ สปอนเซอร์คอนเทนต์ หรือมีข้อสงสัยเกี่ยวกับจิตวิทยา สามารถส่งอีเมลหาเราโดยตรง หรือกรอกแบบฟอร์มด้านข้างนี้ได้เลยครับ
+                    </p>
+                    
+                    <div class="space-y-6 bg-white/5 p-8 rounded-3xl border border-white/10 backdrop-blur-sm">
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-psyche-orange text-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M3 8l7.89 5.26a2 2 0 002.22 0L21 8M5 19h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v10a2 2 0 002 2z"></path></svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-psyche-bg/60 mb-1">Email (ติดต่องานโดยตรง)</p>
+                                <a href="mailto:psychetourlife@gmail.com" class="text-xl font-bold text-white hover:text-psyche-pink transition break-all">psychetourlife@gmail.com</a>
+                            </div>
+                        </div>
+                        
+                        <div class="flex items-start space-x-4">
+                            <div class="w-12 h-12 bg-psyche-pink text-white rounded-xl flex items-center justify-center flex-shrink-0 shadow-lg">
+                                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"></path></svg>
+                            </div>
+                            <div>
+                                <p class="text-sm text-psyche-bg/60 mb-1">Social Media</p>
+                                <div class="flex space-x-4 mt-2">
+                                    <a href="https://www.facebook.com/psyche.tourlife/" target="_blank" class="hover:text-psyche-orange transition font-semibold flex items-center">
+                                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.469h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.469h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+                                        Facebook
+                                    </a>
+                                    <span class="text-white/30">|</span>
+                                    <a href="https://www.instagram.com/psyche.tourlife/" target="_blank" class="hover:text-psyche-pink transition font-semibold flex items-center">
+                                        <svg class="w-4 h-4 mr-1" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.067.06 1.407.06 4.123v.08c0 2.643-.012 2.987-.06 4.043-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.067.048-1.407.06-4.123.06h-.08c-2.643 0-2.987-.012-4.043-.06-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416-1.363-.465-2.427-.047-1.024-.06-1.379-.06-3.808v-.63c0-2.43.013-2.784.06-3.808.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 015.45 2.525c.636-.247 1.363-.416 2.427-.465C8.901 2.013 9.256 2 11.685 2h.63zm-.081 1.802h-.468c-2.456 0-2.784.011-3.807.058-.975.045-1.504.207-1.857.344-.467.182-.8.398-1.15.748-.35.35-.566.683-.748 1.15-.137.353-.3.882-.344 1.857-.047 1.023-.058 1.351-.058 3.807v.468c0 2.456.011 2.784.058 3.807.045.975.207 1.504.344 1.857.182.466.399.8.748 1.15.35.35.683.566 1.15.748.353.137.882.3 1.857.344 1.054.048 1.37.058 4.041.058h.08c2.597 0 2.917-.01 3.96-.058.976-.045 1.505-.207 1.858-.344.466-.182.8-.398 1.15-.748.35-.35.566-.683.748-1.15.137-.353.3-.882.344-1.857.048-1.055.058-1.37.058-4.041v-.08c0-2.597-.01-2.917-.058-3.96-.045-.976-.207-1.505-.344-1.858a3.097 3.097 0 00-.748-1.15 3.098 3.098 0 00-1.15-.748c-.353-.137-.882-.3-1.857-.344-1.023-.047-1.351-.058-3.807-.058zM12 6.865a5.135 5.135 0 110 10.27 5.135 5.135 0 010-10.27zm0 1.802a3.333 3.333 0 100 6.666 3.333 3.333 0 000-6.666zm5.338-3.205a1.2 1.2 0 110 2.4 1.2 1.2 0 010-2.4z" clip-rule="evenodd" /></svg>
+                                        Instagram
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-psyche-bg p-8 rounded-3xl text-psyche-navy shadow-xl">
+                    <form id="contact-form" class="space-y-5">
+                        <h3 class="text-2xl font-bold mb-6 border-b border-psyche-navy/10 pb-4 text-psyche-orange">ฝากข้อความถึงเรา</h3>
+                        <div>
+                            <label class="block text-sm font-bold mb-2">ชื่อ - นามสกุล / องค์กร</label>
+                            <input type="text" id="form-name" placeholder="ระบุชื่อของคุณ หรือองค์กร" class="w-full px-4 py-3 rounded-xl border border-psyche-navy/20 focus:outline-none focus:ring-2 focus:ring-psyche-orange bg-white">
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2">เรื่องที่ต้องการติดต่อ</label>
+                            <select id="form-subject" class="w-full px-4 py-3 rounded-xl border border-psyche-navy/20 focus:outline-none focus:ring-2 focus:ring-psyche-orange bg-white">
+                                <option value="งานวิทยากร/บรรยาย">เชิญเป็นวิทยากร / บรรยาย</option>
+                                <option value="สปอนเซอร์/คอนเทนต์">สปอนเซอร์ / โฆษณาคอนเทนต์</option>
+                                <option value="จัดเวิร์กชอป">ให้คำปรึกษา / จัดเวิร์กชอป</option>
+                                <option value="สอบถามข้อมูลทั่วไป">สอบถามข้อมูลทั่วไป</option>
+                            </select>
+                        </div>
+                        <div>
+                            <label class="block text-sm font-bold mb-2">รายละเอียดงานหรือข้อความ</label>
+                            <textarea id="form-message" rows="4" placeholder="พิมพ์ข้อความของคุณที่นี่..." class="w-full px-4 py-3 rounded-xl border border-psyche-navy/20 focus:outline-none focus:ring-2 focus:ring-psyche-orange bg-white resize-none"></textarea>
+                        </div>
+                        <button type="button" onclick="prepareEmail()" class="w-full bg-psyche-orange text-white font-bold py-4 rounded-xl hover:bg-psyche-navy transition flex justify-center items-center shadow-md hover:shadow-lg">
+                            <svg class="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8"></path></svg>
+                            ส่งอีเมลหาเรา
+                        </button>
+                        <p class="text-xs text-center text-psyche-navy/50 mt-4">*ปุ่มนี้จะเปิดแอปพลิเคชันอีเมลของคุณเพื่อส่งไปยัง psychetourlife@gmail.com</p>
+                    </form>
+                </div>
+            </div>
+        </section>
+
+        <!-- Footer -->
+        <footer class="py-8 px-6 bg-psyche-navy text-center text-psyche-bg/50 border-t border-white/10 relative">
+            <img src="✅ Logo no bg.png" alt="Psyche Tourlife" class="h-10 mx-auto mb-4 opacity-100 brightness-0 invert" onerror="this.onerror=null; this.style.display='none';">
+            <p class="mb-2 text-sm">&copy; 2024 Psyche Tourlife. All rights reserved.</p>
+            
+            <!-- Hidden Admin Login Trigger -->
+            <button onclick="promptAdminLogin()" class="absolute bottom-4 right-6 text-xs text-psyche-bg/20 hover:text-psyche-pink transition">Admin</button>
+        </footer>
+    </div>
+
+    <!-- ADMIN PANEL SECTION (Hidden by default) -->
+    <div id="admin-panel" class="hidden min-h-screen bg-gray-50 py-12 px-6">
+        <div class="max-w-4xl mx-auto">
+            <div class="flex justify-between items-center mb-8">
+                <h1 class="text-3xl font-bold text-psyche-navy flex items-center">
+                    <svg class="w-8 h-8 mr-3 text-psyche-orange" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M10.325 4.317c.426-1.756 2.924-1.756 3.35 0a1.724 1.724 0 002.573 1.066c1.543-.94 3.31.826 2.37 2.37a1.724 1.724 0 001.065 2.572c1.756.426 1.756 2.924 0 3.35a1.724 1.724 0 00-1.066 2.573c.94 1.543-.826 3.31-2.37 2.37a1.724 1.724 0 00-2.572 1.065c-.426 1.756-2.924 1.756-3.35 0a1.724 1.724 0 00-2.573-1.066c-1.543.94-3.31-.826-2.37-2.37a1.724 1.724 0 00-1.065-2.572c-1.756-.426-1.756-2.924 0-3.35a1.724 1.724 0 001.066-2.573c-.94-1.543.826-3.31 2.37-2.37.996.608 2.296.07 2.572-1.065z"></path><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 12a3 3 0 11-6 0 3 3 0 016 0z"></path></svg>
+                    ระบบหลังบ้าน (Admin Panel)
+                </h1>
+                <button onclick="logoutAdmin()" class="bg-gray-200 text-gray-700 px-4 py-2 rounded-lg hover:bg-gray-300 transition text-sm font-bold">กลับสู่เว็บไซต์</button>
+            </div>
+
+            <!-- Add Article Form -->
+            <div class="bg-white rounded-2xl shadow-sm p-6 md:p-8 mb-8 border border-gray-100">
+                <h2 class="text-xl font-bold mb-6 text-psyche-orange border-b pb-3">เพิ่มบทความใหม่</h2>
+                
+                <!-- AI Assistant for Admin -->
+                <div class="mb-8 p-5 bg-psyche-bg/50 rounded-xl border border-psyche-pink/30">
+                    <h3 class="text-sm font-bold text-psyche-navy mb-2 flex items-center">
+                        <span class="mr-2">✨</span> ผู้ช่วยเขียนคอนเทนต์ (AI Assistant)
+                    </h3>
+                    <p class="text-xs text-gray-600 mb-3">วางเนื้อหาคร่าวๆ หรือไอเดียของคุณ แล้วให้ AI ช่วยคิด "หัวข้อ" และ "คำโปรย" ให้นะครับ</p>
+                    <textarea id="admin-raw-content" rows="3" placeholder="วางไอเดียหรือเนื้อหาบทความที่นี่..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-psyche-pink focus:outline-none resize-none mb-3 text-sm"></textarea>
+                    <button type="button" onclick="generateArticleIdea()" id="btn-ai-generate" class="bg-psyche-pink text-white px-4 py-2 rounded-lg text-sm font-bold hover:bg-psyche-navy transition flex items-center shadow-sm">
+                        ✨ สร้างหัวข้อและคำโปรยด้วย AI
+                    </button>
+                </div>
+
+                <form id="admin-article-form" class="space-y-5">
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">หัวข้อบทความ</label>
+                        <input type="text" id="article-title" required placeholder="เช่น ทำใจให้สบายด้วยหลักการหายใจ..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-psyche-navy focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">ลิงก์รูปภาพหน้าปก (URL)</label>
+                        <input type="url" id="article-image" required placeholder="https://..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-psyche-navy focus:outline-none">
+                        <p class="text-xs text-gray-500 mt-1">นำลิงก์รูปภาพจาก Facebook หรือเว็บฝากรูปมาใส่</p>
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">ลิงก์อ่านต่อ (เช่น ลิงก์โพสต์ Facebook/IG)</label>
+                        <input type="url" id="article-link" required placeholder="https://www.facebook.com/..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-psyche-navy focus:outline-none">
+                    </div>
+                    <div>
+                        <label class="block text-sm font-bold text-gray-700 mb-1">คำโปรย / เนื้อหาย่อ</label>
+                        <textarea id="article-excerpt" required rows="3" placeholder="เขียนสรุปเนื้อหาสั้นๆ..." class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:ring-2 focus:ring-psyche-navy focus:outline-none resize-none"></textarea>
+                    </div>
+                    <button type="submit" id="btn-submit-article" class="bg-psyche-navy text-white px-6 py-3 rounded-lg font-bold hover:bg-psyche-orange transition w-full md:w-auto">
+                        บันทึกและเผยแพร่
+                    </button>
+                </form>
+            </div>
+
+            <!-- Manage Articles -->
+            <div class="bg-white rounded-2xl shadow-sm p-6 md:p-8 border border-gray-100">
+                <h2 class="text-xl font-bold mb-6 text-psyche-navy border-b pb-3">จัดการบทความที่มีอยู่</h2>
+                <div id="admin-articles-list" class="space-y-4">
+                    <!-- List populated by Firebase -->
+                    <p class="text-gray-500 text-sm text-center py-4">กำลังโหลดข้อมูล...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- UI Scripts -->
+    <script>
+        // Mobile Menu Toggle
+        const menuBtn = document.getElementById('menu-btn');
+        const mobileMenu = document.getElementById('mobile-menu');
+        menuBtn.addEventListener('click', () => {
+            mobileMenu.classList.toggle('hidden');
+        });
+
+        // Prepare Email (Mailto Link Generation)
+        function prepareEmail() {
+            const name = document.getElementById('form-name').value;
+            const subject = document.getElementById('form-subject').value;
+            const message = document.getElementById('form-message').value;
+            const mailtoLink = `mailto:psychetourlife@gmail.com?subject=ติดต่อเพจ Psyche.Tourlife: ${encodeURIComponent(subject)}&body=${encodeURIComponent("ชื่อ/องค์กร: " + name + "\n\nรายละเอียด:\n" + message)}`;
+            window.location.href = mailtoLink;
+        }
+
+        // Admin Access UI Logic
+        function promptAdminLogin() {
+            const password = prompt("กรุณาใส่รหัสผ่านแอดมิน (Hint: ลองใส่ admin123)");
+            if (password === "admin123") {
+                document.getElementById('main-content').classList.add('hidden');
+                document.getElementById('admin-panel').classList.remove('hidden');
+                window.scrollTo(0,0);
+            } else if (password !== null) {
+                alert("รหัสผ่านไม่ถูกต้อง");
+            }
+        }
+
+        function logoutAdmin() {
+            document.getElementById('admin-panel').classList.add('hidden');
+            document.getElementById('main-content').classList.remove('hidden');
+            window.scrollTo(0,0);
+        }
+
+        // --- GEMINI API INTEGRATION ---
+        
+        async function fetchGeminiWithRetry(prompt, isJson = false, systemInstruction = "You are a helpful assistant.") {
+            const apiKey = ""; // API key is injected at runtime
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-09-2025:generateContent?key=${apiKey}`;
+            
+            const payload = {
+                contents: [{ parts: [{ text: prompt }] }],
+                systemInstruction: { parts: [{ text: systemInstruction }] }
+            };
+
+            if (isJson) {
+                payload.generationConfig = {
+                    responseMimeType: "application/json",
+                    responseSchema: {
+                        type: "OBJECT",
+                        properties: {
+                            title: { type: "STRING" },
+                            excerpt: { type: "STRING" }
+                        }
+                    }
+                };
+            }
+
+            const delays = [1000, 2000, 4000, 8000, 16000];
+            
+            for (let i = 0; i < 5; i++) {
+                try {
+                    const response = await fetch(url, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    
+                    if (!response.ok) {
+                        throw new Error(`HTTP error! status: ${response.status}`);
+                    }
+                    
+                    const result = await response.json();
+                    const text = result.candidates?.[0]?.content?.parts?.[0]?.text;
+                    
+                    return isJson ? JSON.parse(text) : text;
+                } catch (error) {
+                    if (i === 4) {
+                        console.error("Gemini API failed after all retries:", error);
+                        throw new Error("ระบบ AI ไม่สามารถตอบสนองได้ในขณะนี้ กรุณาลองใหม่ภายหลัง");
+                    }
+                    await new Promise(res => setTimeout(res, delays[i]));
+                }
+            }
+        }
+
+        // Public Feature: Mind Explorer
+        async function exploreMind() {
+            const inputEl = document.getElementById('ai-user-input');
+            const btnEl = document.getElementById('btn-explore');
+            const containerEl = document.getElementById('ai-response-container');
+            const responseEl = document.getElementById('ai-response-text');
+            
+            const text = inputEl.value.trim();
+            if (!text) {
+                alert("กรุณาพิมพ์ความรู้สึกของคุณก่อนครับ");
+                return;
+            }
+
+            btnEl.innerHTML = `✨ กำลังวิเคราะห์...`;
+            btnEl.disabled = true;
+            containerEl.classList.add('hidden');
+
+            const systemInstruction = "คุณคือนักจิตวิทยาผู้ให้คำปรึกษาที่อบอุ่น ใจดี มีความเข้าอกเข้าใจ (empathy) สูง ไม่ตัดสิน และมีมุมมองเชิงบวก ของเพจ Psyche.Tourlife ตอบด้วยภาษาไทย";
+            const prompt = `ผู้ใช้กำลังรู้สึก: "${text}"\nให้คำแนะนำเชิงจิตวิทยาสั้นๆ (ความยาว 3-4 บรรทัด) ที่ให้กำลังใจ สะท้อนอารมณ์ด้วยความเข้าอกเข้าใจ ไม่ตัดสิน อธิบายตามหลักจิตวิทยาที่เข้าใจง่าย และประโยคสุดท้ายให้ทิ้งท้ายด้วยคำถาม 1 ข้อเพื่อชวนให้ผู้ใช้ได้สำรวจจิตใจตัวเองต่ออย่างอ่อนโยน ใช้ภาษาที่เป็นมิตร อบอุ่น เหมือนเพื่อนคุยกัน`;
+
+            try {
+                const aiResponse = await fetchGeminiWithRetry(prompt, false, systemInstruction);
+                responseEl.innerHTML = aiResponse.replace(/\n/g, '<br>');
+                containerEl.classList.remove('hidden');
+            } catch (error) {
+                alert(error.message);
+            } finally {
+                btnEl.innerHTML = `✨ รับมุมมองและคำถามสำรวจใจ`;
+                btnEl.disabled = false;
+            }
+        }
+
+        // Admin Feature: AI Content Generator
+        async function generateArticleIdea() {
+            const rawContentEl = document.getElementById('admin-raw-content');
+            const btnEl = document.getElementById('btn-ai-generate');
+            
+            const rawContent = rawContentEl.value.trim();
+            if (!rawContent) {
+                alert("กรุณาวางเนื้อหาหรือไอเดียคร่าวๆ ก่อนครับ");
+                return;
+            }
+
+            btnEl.innerHTML = `✨ กำลังสร้างคอนเทนต์...`;
+            btnEl.disabled = true;
+
+            const systemInstruction = "คุณคือ Copywriter มืออาชีพของเพจจิตวิทยาชื่อ Psyche.Tourlife ที่เขียนคำโปรยได้น่าสนใจและดึงดูดให้อ่านต่อ ตอบกลับเป็น JSON เท่านั้น";
+            const prompt = `ช่วยคิด "หัวข้อบทความ" (title) ที่น่าสนใจ และ "คำโปรย" (excerpt) ความยาวประมาณ 2-3 บรรทัด จากข้อมูลต่อไปนี้:\n\n${rawContent}`;
+
+            try {
+                const aiResult = await fetchGeminiWithRetry(prompt, true, systemInstruction);
+                
+                // Fill the form fields with the generated JSON
+                document.getElementById('article-title').value = aiResult.title || '';
+                document.getElementById('article-excerpt').value = aiResult.excerpt || '';
+                
+                // Add a small highlight animation to indicate auto-fill
+                document.getElementById('article-title').classList.add('ring-2', 'ring-psyche-pink');
+                document.getElementById('article-excerpt').classList.add('ring-2', 'ring-psyche-pink');
+                setTimeout(() => {
+                    document.getElementById('article-title').classList.remove('ring-2', 'ring-psyche-pink');
+                    document.getElementById('article-excerpt').classList.remove('ring-2', 'ring-psyche-pink');
+                }, 2000);
+
+            } catch (error) {
+                alert(error.message);
+            } finally {
+                btnEl.innerHTML = `✨ สร้างหัวข้อและคำโปรยด้วย AI`;
+                btnEl.disabled = false;
+            }
+        }
+    </script>
+
+    <!-- FIREBASE BACKEND INTEGRATION (For Articles) -->
+    <script type="module">
+        import { initializeApp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-app.js";
+        import { getAuth, signInWithCustomToken, signInAnonymously, onAuthStateChanged } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-auth.js";
+        import { getFirestore, collection, addDoc, onSnapshot, deleteDoc, doc, serverTimestamp } from "https://www.gstatic.com/firebasejs/11.6.1/firebase-firestore.js";
+
+        // Initialize Firebase safely
+        let firebaseConfig = {};
+        try { if (typeof __firebase_config !== 'undefined') firebaseConfig = JSON.parse(__firebase_config); } catch (e) {}
+        
+        const app = initializeApp(firebaseConfig);
+        const auth = getAuth(app);
+        const db = getFirestore(app);
+        const appId = typeof __app_id !== 'undefined' ? __app_id : 'psyche-app-id';
+        let currentUser = null;
+
+        // AUTH BEFORE QUERIES
+        const initAuth = async () => {
+            try {
+                if (typeof __initial_auth_token !== 'undefined' && __initial_auth_token) {
+                    await signInWithCustomToken(auth, __initial_auth_token);
+                } else {
+                    await signInAnonymously(auth);
+                }
+            } catch (error) {
+                console.error("Auth initialization failed:", error);
+                document.getElementById('public-articles-grid').innerHTML = `<div class="col-span-3 text-center py-10 text-psyche-pink">ไม่สามารถเชื่อมต่อฐานข้อมูลได้ กรุณาลองใหม่ในภายหลัง</div>`;
+            }
+        };
+        
+        initAuth();
+
+        // Handle State & Data Fetching
+        onAuthStateChanged(auth, (user) => {
+            currentUser = user;
+            if (user) {
+                fetchAndRenderArticles();
+            }
+        });
+
+        // Fetch Articles and Render on both Public and Admin side
+        function fetchAndRenderArticles() {
+            if (!currentUser) return;
+            
+            const articlesRef = collection(db, 'artifacts', appId, 'public', 'data', 'articles');
+            
+            onSnapshot(articlesRef, (snapshot) => {
+                const publicContainer = document.getElementById('public-articles-grid');
+                const adminContainer = document.getElementById('admin-articles-list');
+                
+                let articlesHTML = '';
+                let adminHTML = '';
+                
+                const docs = [];
+                snapshot.forEach(doc => {
+                    docs.push({ id: doc.id, ...doc.data() });
+                });
+                
+                // Sort by time descending in memory
+                docs.sort((a, b) => (b.createdAt?.toMillis() || 0) - (a.createdAt?.toMillis() || 0));
+
+                if (docs.length === 0) {
+                    publicContainer.innerHTML = `<div class="col-span-3 text-center py-12 text-psyche-navy/50 bg-white rounded-3xl border border-psyche-navy/5">ยังไม่มีบทความในขณะนี้</div>`;
+                    adminContainer.innerHTML = `<p class="text-gray-500 text-sm text-center py-4">ยังไม่มีบทความ</p>`;
+                    return;
+                }
+
+                docs.forEach(data => {
+                    // Public UI Card
+                    articlesHTML += `
+                        <div class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-psyche-navy/5 group flex flex-col">
+                            <div class="h-48 overflow-hidden bg-psyche-bg">
+                                <img src="${data.imageUrl}" alt="${data.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500" onerror="this.src='https://placehold.co/600x400/FFF4EA/2B208B?text=Article+Image'">
+                            </div>
+                            <div class="p-6 flex-1 flex flex-col">
+                                <h3 class="text-xl font-bold mb-3 text-psyche-navy leading-snug line-clamp-2">${data.title}</h3>
+                                <p class="text-psyche-navy/70 mb-6 text-sm line-clamp-3 flex-1">${data.excerpt}</p>
+                                <a href="${data.link}" target="_blank" class="inline-block text-center bg-psyche-bg text-psyche-orange font-semibold py-3 rounded-xl hover:bg-psyche-orange hover:text-white transition mt-auto">
+                                    อ่านฉบับเต็ม
+                                </a>
+                            </div>
+                        </div>
+                    `;
+
+                    // Admin UI List Item
+                    adminHTML += `
+                        <div class="flex items-center justify-between p-4 bg-gray-50 rounded-xl border border-gray-200">
+                            <div class="flex items-center space-x-4">
+                                <img src="${data.imageUrl}" class="w-16 h-16 object-cover rounded-lg bg-gray-200" onerror="this.style.display='none'">
+                                <div>
+                                    <h4 class="font-bold text-gray-800 line-clamp-1">${data.title}</h4>
+                                    <p class="text-xs text-gray-500 line-clamp-1">${data.excerpt}</p>
+                                </div>
+                            </div>
+                            <button onclick="window.deleteArticle('${data.id}')" class="text-red-500 hover:bg-red-50 p-2 rounded-lg transition ml-4 flex-shrink-0" title="ลบบทความ">
+                                <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path></svg>
+                            </button>
+                        </div>
+                    `;
+                });
+
+                publicContainer.innerHTML = articlesHTML;
+                adminContainer.innerHTML = adminHTML;
+                
+            }, (error) => {
+                console.error("Error fetching articles:", error);
+            });
+        }
+
+        // Handle Add Article Submission
+        document.getElementById('admin-article-form').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            if (!currentUser) return alert("เซสชั่นหมดอายุ กรุณาโหลดหน้าเว็บใหม่");
+
+            const btn = document.getElementById('btn-submit-article');
+            btn.innerText = 'กำลังบันทึก...';
+            btn.disabled = true;
+
+            const title = document.getElementById('article-title').value;
+            const imageUrl = document.getElementById('article-image').value;
+            const link = document.getElementById('article-link').value;
+            const excerpt = document.getElementById('article-excerpt').value;
+
+            try {
+                const articlesRef = collection(db, 'artifacts', appId, 'public', 'data', 'articles');
+                await addDoc(articlesRef, {
+                    title,
+                    imageUrl,
+                    link,
+                    excerpt,
+                    createdAt: serverTimestamp()
+                });
+                
+                alert('เผยแพร่บทความเรียบร้อยแล้ว!');
+                document.getElementById('admin-article-form').reset();
+            } catch (error) {
+                console.error("Error adding document: ", error);
+                alert("เกิดข้อผิดพลาดในการบันทึกข้อมูล");
+            } finally {
+                btn.innerText = 'บันทึกและเผยแพร่';
+                btn.disabled = false;
+            }
+        });
+
+        // Global Delete Function for Admin UI
+        window.deleteArticle = async (docId) => {
+            if (!currentUser) return;
+            if (confirm('คุณแน่ใจหรือไม่ว่าต้องการลบบทความนี้?')) {
+                try {
+                    await deleteDoc(doc(db, 'artifacts', appId, 'public', 'data', 'articles', docId));
+                } catch (error) {
+                    console.error("Error deleting document: ", error);
+                    alert("ลบไม่สำเร็จ กรุณาลองใหม่");
+                }
+            }
+        }
+    </script>
+</body>
+</html>
