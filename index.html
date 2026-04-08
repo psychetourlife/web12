@@ -426,7 +426,7 @@
         
         async function fetchGeminiWithRetry(prompt, isJson = false, systemInstruction = "You are a helpful assistant.") {
             const apiKey = "AIzaSyAAROrYE9dlZva03uEOO0SLRPJwDNdNuJQ";
-            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash:generateContent?key=${apiKey}`;
+            const url = `https://generativelanguage.googleapis.com/v1beta/models/gemini-1.5-flash-latest:generateContent?key=${apiKey}`;
             
             const payload = {
                 contents: [{ parts: [{ text: prompt }] }],
