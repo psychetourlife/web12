@@ -278,16 +278,26 @@
 
         <!-- Speaker Experience Section -->
         <section id="experience" class="py-24 px-6 bg-white overflow-hidden">
-            <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16 fade-in-section">
+            <div class="max-w-7xl mx-auto relative fade-in-section">
+                <div class="text-center mb-16">
                     <span class="text-psyche-pink font-bold tracking-widest uppercase text-sm mb-2 block">Our Experience</span>
                     <h2 class="text-3xl md:text-5xl font-bold text-psyche-orange mb-4">ประสบการณ์วิทยากร</h2>
                     <div class="h-1 w-20 bg-psyche-pink mx-auto rounded-full mb-8"></div>
                 </div>
 
+                <!-- Navigation Arrows -->
+                <div class="absolute w-full top-[55%] -translate-y-1/2 flex justify-between px-0 md:-mx-6 pointer-events-none z-10 hidden sm:flex">
+                    <button id="slider-prev" class="pointer-events-auto bg-white border border-psyche-navy/10 text-psyche-navy hover:bg-psyche-orange hover:text-white rounded-full p-3 shadow-lg transition-all btn-scale">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 19l-7-7 7-7"></path></svg>
+                    </button>
+                    <button id="slider-next" class="pointer-events-auto bg-white border border-psyche-navy/10 text-psyche-navy hover:bg-psyche-orange hover:text-white rounded-full p-3 shadow-lg transition-all btn-scale">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 5l7 7-7 7"></path></svg>
+                    </button>
+                </div>
+
                 <!-- Logo Slider -->
-                <div class="fade-in-section">
-                    <div class="flex overflow-x-auto gap-8 pb-12 snap-x no-scrollbar">
+                <div class="px-4 md:px-12">
+                    <div id="experience-slider" class="flex overflow-x-auto gap-8 pb-12 snap-x no-scrollbar scroll-smooth">
                         <!-- AfterKlass -->
                         <div class="flex-none w-64 snap-center group">
                             <div class="bg-gray-50 rounded-3xl p-8 mb-4 h-48 flex items-center justify-center border border-gray-100 group-hover:border-psyche-pink/30 transition shadow-sm">
@@ -355,7 +365,7 @@
                         </div>
                     </div>
                     
-                    <div class="text-center mt-8">
+                    <div class="text-center mt-4">
                         <p class="text-psyche-navy/40 font-medium italic">"และหน่วยงาน สถาบันการศึกษา อีกมากกว่า 30 แห่ง"</p>
                     </div>
                 </div>
@@ -449,7 +459,70 @@
     <script async src="//www.instagram.com/embed.js"></script>
 
     <script>
+        // -----------------------------
+        // Slider Auto-Scroll Logic
+        // -----------------------------
+        const slider = document.getElementById('experience-slider');
+        const sliderPrev = document.getElementById('slider-prev');
+        const sliderNext = document.getElementById('slider-next');
+        let autoScrollInterval;
+
+        function scrollSlider(direction) {
+            // คำนวณความกว้างของการ์ด (รวมช่องว่าง gap)
+            const scrollAmount = 300; 
+
+            if (direction === 'next') {
+                // หากถึงจุดขวาสุดแล้ว (บวกค่าความคลาดเคลื่อนเล็กน้อย) ให้วนกลับซ้ายสุด
+                if (slider.scrollLeft + slider.clientWidth >= slider.scrollWidth - 10) {
+                    slider.scrollTo({ left: 0, behavior: 'smooth' });
+                } else {
+                    slider.scrollBy({ left: scrollAmount, behavior: 'smooth' });
+                }
+            } else {
+                // หากอยู่ซ้ายสุดแล้ว ให้วนไปขวาสุด
+                if (slider.scrollLeft <= 0) {
+                    slider.scrollTo({ left: slider.scrollWidth, behavior: 'smooth' });
+                } else {
+                    slider.scrollBy({ left: -scrollAmount, behavior: 'smooth' });
+                }
+            }
+        }
+
+        // เมื่อกดปุ่มลูกศร
+        if(sliderNext && sliderPrev) {
+            sliderNext.addEventListener('click', () => {
+                scrollSlider('next');
+                resetAutoScroll();
+            });
+
+            sliderPrev.addEventListener('click', () => {
+                scrollSlider('prev');
+                resetAutoScroll();
+            });
+        }
+
+        function startAutoScroll() {
+            autoScrollInterval = setInterval(() => {
+                scrollSlider('next');
+            }, 3000); // เลื่อนทุก 3 วินาที
+        }
+
+        function resetAutoScroll() {
+            clearInterval(autoScrollInterval);
+            startAutoScroll();
+        }
+
+        // หยุดเลื่อนอัตโนมัติเมื่อนำเมาส์วาง
+        if(slider) {
+            slider.addEventListener('mouseenter', () => clearInterval(autoScrollInterval));
+            slider.addEventListener('mouseleave', startAutoScroll);
+            // เริ่มต้นการเลื่อนอัตโนมัติ
+            startAutoScroll();
+        }
+
+        // -----------------------------
         // Tab Switching Logic
+        // -----------------------------
         function switchTab(type) {
             const fbTab = document.getElementById('tab-fb');
             const igTab = document.getElementById('tab-ig');
