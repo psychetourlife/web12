@@ -1,3 +1,8 @@
+จัดให้เลยครับ! ผมได้นำคลาสแอนิเมชัน (`opacity-0 translate-y-10 transition-all duration-1000 ease-out fade-element`) ไปไล่ใส่ตามจุดต่างๆ เช่น หัวข้อ, การ์ดบทความ, กล่องบริการ, และฟอร์มติดต่อ พร้อมกับฝังโค้ด JavaScript ตัวคุมแอนิเมชันไว้ด้านล่างสุดให้เรียบร้อยแล้วครับ
+
+คุณสามารถก๊อปปี้โค้ดทั้งหมดนี้ ไปวางทับในไฟล์ `index.html` ของคุณได้เลยครับ รับรองว่าตอนเลื่อนจอ เว็บจะดูสมูทและมีความเป็นมืออาชีพขึ้นมากๆ ครับ ✨
+
+```html
 <!DOCTYPE html>
 <html lang="th">
 <head>
@@ -7,15 +12,12 @@
     
     <link rel="icon" type="image/png" href="Logonobg.png">
     
-    <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     
-    <!-- Google Fonts: Prompt (Thai sans-serif without loops) -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Tailwind Config for Brand CI -->
     <script>
         tailwind.config = {
             theme: {
@@ -60,17 +62,13 @@
 </head>
 <body class="font-sans antialiased selection:bg-psyche-pink selection:text-white">
 
-    <!-- MAIN WEBSITE CONTENT -->
     <div id="main-content">
-        <!-- Navigation -->
         <nav class="fixed w-full z-50 glass-nav transition-all duration-300">
             <div class="max-w-7xl mx-auto px-6 py-3 flex justify-between items-center">
-                <!-- Logo -->
                 <a href="#home" class="flex items-center">
                     <img src="Logonobg.png" alt="Psyche Tourlife" class="h-20 w-auto object-contain drop-shadow-sm" onerror="this.onerror=null; this.src='https://placehold.co/400x150/FFF4EA/2B208B?text=psyche.tourlife&font=Prompt';">
                 </a>
                 
-                <!-- Desktop Menu -->
                 <div class="hidden md:flex items-center space-x-8 text-sm font-semibold tracking-wide text-psyche-navy">
                     <a href="#home" class="hover:text-psyche-orange transition">หน้าแรก</a>
                     <a href="#articles" class="hover:text-psyche-orange transition">บทความ</a>
@@ -79,7 +77,6 @@
                     <a href="https://lin.ee/TGHyG8K" target="_blank" class="px-5 py-2.5 bg-psyche-orange text-white rounded-full hover:bg-psyche-navy hover:shadow-lg transition-all duration-300">ติดต่องาน</a>
                 </div>
                 
-                <!-- Mobile Menu Button -->
                 <button class="md:hidden text-psyche-navy p-2" id="menu-btn">
                     <svg xmlns="http://www.w3.org/2000/svg" class="h-7 w-7" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
@@ -87,7 +84,6 @@
                 </button>
             </div>
             
-            <!-- Mobile Dropdown -->
             <div id="mobile-menu" class="hidden md:hidden bg-psyche-bg border-t border-psyche-pink/20 p-6 flex flex-col space-y-5 shadow-xl">
                 <a href="#home" class="text-lg font-medium text-psyche-navy">หน้าแรก</a>
                 <a href="#articles" class="text-lg font-medium text-psyche-navy">บทความ</a>
@@ -97,14 +93,12 @@
             </div>
         </nav>
 
-        <!-- Hero Section -->
         <header id="home" class="relative pt-32 pb-20 md:pt-48 md:pb-32 px-6 overflow-hidden flex flex-col items-center justify-center min-h-[90vh]">
-            <!-- Decorative blobs based on CI -->
             <div class="absolute top-20 -left-20 w-72 h-72 bg-psyche-pink rounded-full mix-blend-multiply filter blur-3xl opacity-30 animate-blob"></div>
             <div class="absolute top-40 -right-20 w-72 h-72 bg-psyche-orange rounded-full mix-blend-multiply filter blur-3xl opacity-20 animate-blob animation-delay-2000"></div>
             <div class="absolute -bottom-8 left-40 w-72 h-72 bg-psyche-navy rounded-full mix-blend-multiply filter blur-3xl opacity-10 animate-blob animation-delay-4000"></div>
 
-            <div class="relative z-10 text-center max-w-4xl mx-auto">
+            <div class="relative z-10 text-center max-w-4xl mx-auto opacity-0 translate-y-10 transition-all duration-1000 ease-out fade-element">
                 <span class="inline-block py-1 px-3 rounded-full bg-psyche-orange text-white font-semibold text-sm mb-6 tracking-wider shadow-sm">PSYCHOLOGY & SELF-DISCOVERY</span>
                 <h1 class="text-5xl md:text-7xl font-bold text-psyche-navy mb-6 leading-tight tracking-tight">
                     ท่องไปใน<span class="text-psyche-orange">โลกของจิตใจ</span>
@@ -128,10 +122,9 @@
             </div>
         </header>
 
-        <!-- Articles Section (Showcasing Facebook Posts) -->
         <section id="articles" class="py-24 px-6 bg-white/50 backdrop-blur-sm border-y border-psyche-navy/5">
             <div class="max-w-7xl mx-auto">
-                <div class="flex flex-col md:flex-row justify-between items-end mb-12">
+                <div class="flex flex-col md:flex-row justify-between items-end mb-12 opacity-0 translate-y-10 transition-all duration-1000 ease-out fade-element">
                     <div>
                         <span class="text-psyche-pink font-bold tracking-widest uppercase text-sm mb-2 block">Our Portfolio</span>
                         <h2 class="text-3xl md:text-5xl font-bold text-psyche-orange">ผลงานของเรา</h2>
@@ -142,11 +135,8 @@
                     </a>
                 </div>
 
-                <!-- Static Articles Grid -->
                 <div class="grid md:grid-cols-3 gap-8">
-                    
-                    <!-- Post 1 -->
-                    <a href="https://www.facebook.com/psyche.tourlife/posts/pfbid0VThAyMUURowGeJQb3fdaRy2513JKFykmHhekZhbsPdQ5qmeiJgSmHPZpRnJb7tWal" target="_blank" class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-psyche-navy/5 group flex flex-col">
+                    <a href="https://www.facebook.com/psyche.tourlife/posts/pfbid0VThAyMUURowGeJQb3fdaRy2513JKFykmHhekZhbsPdQ5qmeiJgSmHPZpRnJb7tWal" target="_blank" class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-psyche-navy/5 group flex flex-col opacity-0 translate-y-10 transition-all duration-1000 ease-out fade-element">
                         <div class="h-48 overflow-hidden bg-psyche-bg relative">
                             <img src="https://scontent.fbkk22-2.fna.fbcdn.net/v/t39.30808-6/536287390_1054814286818685_7745227206356025268_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=13d280&_nc_ohc=vZ7Lr1Tlk4MQ7kNvwH2Xmpw&_nc_oc=AdrmtMk8DMdlS4gcXCRS4b0y9qKtn4iBXJd70gvcMeHuw6MfdtwKRAY8e-66DeHljwo&_nc_zt=23&_nc_ht=scontent.fbkk22-2.fna&_nc_gid=-HnHzaSDJ-CP3GDd_42LgQ&_nc_ss=7a3a8&oh=00_Af1pu6z4HPGRQ9jotoxOIHIcohXi4Pj9vnNnMVWhtdHIYQ&oe=69DC0626" alt="บทความ Facebook 1" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                             <div class="absolute top-4 right-4 bg-blue-600 text-white p-2 rounded-full shadow-md">
@@ -162,8 +152,7 @@
                         </div>
                     </a>
 
-                    <!-- Post 2 -->
-                    <a href="https://www.facebook.com/psyche.tourlife/posts/pfbid06LGMyz4jGMA2fhcvDGVZxGQxEQt2YaqwyV2Zty4NREiuCwCHRShsgtZds45M4y9Vl" target="_blank" class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-psyche-navy/5 group flex flex-col">
+                    <a href="https://www.facebook.com/psyche.tourlife/posts/pfbid06LGMyz4jGMA2fhcvDGVZxGQxEQt2YaqwyV2Zty4NREiuCwCHRShsgtZds45M4y9Vl" target="_blank" class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-psyche-navy/5 group flex flex-col opacity-0 translate-y-10 transition-all duration-1000 ease-out fade-element">
                         <div class="h-48 overflow-hidden bg-psyche-bg relative">
                             <img src="https://scontent.fbkk22-8.fna.fbcdn.net/v/t39.30808-6/468306213_18126797749383483_5874940957032712968_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=13d280&_nc_ohc=gMbO-BZB4YMQ7kNvwGJLqBk&_nc_oc=AdrA0KRiRudn-PLOV4lHOPeCvniXbzNQ5afmdXobKLYZiRN1-OGyJIbFB8Wj6FQ4Qa4&_nc_zt=23&_nc_ht=scontent.fbkk22-8.fna&_nc_gid=g2P5lue94Fi7ingwEKQnJA&_nc_ss=7a389&oh=00_Af1cLXASsrYZoFhEevI2OeRHxNyT4WWGDgdb1UEcJmeqGw&oe=69DC0D94" alt="บทความ Facebook 2" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                             <div class="absolute top-4 right-4 bg-blue-600 text-white p-2 rounded-full shadow-md">
@@ -179,8 +168,7 @@
                         </div>
                     </a>
 
-                    <!-- Post 3 -->
-                    <a href="https://www.facebook.com/psyche.tourlife/posts/pfbid02tDw6EBZn4Dv6ZtxvwcyBbRrvDQ2PKaaybQj3e9QNQBpXQsreLqsvp5pz8H68uS7Hl" target="_blank" class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-psyche-navy/5 group flex flex-col">
+                    <a href="https://www.facebook.com/psyche.tourlife/posts/pfbid02tDw6EBZn4Dv6ZtxvwcyBbRrvDQ2PKaaybQj3e9QNQBpXQsreLqsvp5pz8H68uS7Hl" target="_blank" class="bg-white rounded-3xl overflow-hidden shadow-sm hover:shadow-xl transition duration-300 border border-psyche-navy/5 group flex flex-col opacity-0 translate-y-10 transition-all duration-1000 ease-out fade-element">
                         <div class="h-48 overflow-hidden bg-psyche-bg relative">
                             <img src="https://scontent.fbkk22-3.fna.fbcdn.net/v/t39.30808-6/476075472_912746154358833_7359052584036894940_n.jpg?_nc_cat=111&ccb=1-7&_nc_sid=13d280&_nc_ohc=RO88rMh0q4cQ7kNvwFkzegd&_nc_oc=AdollUbh1nMblvEFS3UUo63cKmKoVpyvqHvvP3E2awSvqHfdl_tNm1cyw7AMtykft6k&_nc_zt=23&_nc_ht=scontent.fbkk22-3.fna&_nc_gid=nqkGPRDydZrnK68B-hxI1A&_nc_ss=7a3a8&oh=00_Af3Mu8aFo6IQscJ7hvxdrKNJCuyDH3BPkDV4te4bYe5x4g&oe=69DC2216" alt="บทความ Facebook 3" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
                             <div class="absolute top-4 right-4 bg-blue-600 text-white p-2 rounded-full shadow-md">
@@ -195,23 +183,20 @@
                             </span>
                         </div>
                     </a>
-
                 </div>
             </div>
         </section>
 
-        <!-- Services Section -->
         <section id="services" class="py-24 px-6 bg-psyche-bg">
             <div class="max-w-7xl mx-auto">
-                <div class="text-center mb-16">
+                <div class="text-center mb-16 opacity-0 translate-y-10 transition-all duration-1000 ease-out fade-element">
                     <span class="text-psyche-pink font-bold tracking-widest uppercase text-sm mb-2 block">What We Do</span>
                     <h2 class="text-3xl md:text-5xl font-bold text-psyche-orange mb-4">บริการและผลงานของเรา</h2>
                     <div class="h-1 w-20 bg-psyche-pink mx-auto rounded-full"></div>
                 </div>
 
                 <div class="grid md:grid-cols-3 gap-10">
-                    <!-- Service 1 -->
-                    <div class="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition duration-300 border border-psyche-navy/5 group">
+                    <div class="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition duration-300 border border-psyche-navy/5 group opacity-0 translate-y-10 transition-all duration-1000 ease-out fade-element">
                         <div class="w-16 h-16 bg-psyche-pink/10 text-psyche-pink rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M11 5H6a2 2 0 00-2 2v11a2 2 0 002 2h11a2 2 0 002-2v-5m-1.414-9.414a2 2 0 112.828 2.828L11.828 15H9v-2.828l8.586-8.586z"></path></svg>
                         </div>
@@ -222,8 +207,7 @@
                         </a>
                     </div>
 
-                    <!-- Service 2 -->
-                    <div class="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition duration-300 border border-psyche-navy/5 group">
+                    <div class="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition duration-300 border border-psyche-navy/5 group opacity-0 translate-y-10 transition-all duration-1000 ease-out fade-element">
                         <div class="w-16 h-16 bg-psyche-orange/10 text-psyche-orange rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11a7 7 0 01-7 7m0 0a7 7 0 01-7-7m7 7v4m0 0H8m4 0h4m-4-8a3 3 0 01-3-3V5a3 3 0 116 0v6a3 3 0 01-3 3z"></path></svg>
                         </div>
@@ -234,8 +218,7 @@
                         </a>
                     </div>
 
-                    <!-- Service 3 -->
-                    <div class="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition duration-300 border border-psyche-navy/5 group">
+                    <div class="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition duration-300 border border-psyche-navy/5 group opacity-0 translate-y-10 transition-all duration-1000 ease-out fade-element">
                         <div class="w-16 h-16 bg-psyche-navy/10 text-psyche-navy rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform">
                             <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M17 20h5v-2a3 3 0 00-5.356-1.857M17 20H7m10 0v-2c0-.656-.126-1.283-.356-1.857M7 20H2v-2a3 3 0 015.356-1.857M7 20v-2c0-.656.126-1.283.356-1.857m0 0a5.002 5.002 0 019.288 0M15 7a3 3 0 11-6 0 3 3 0 016 0zm6 3a2 2 0 11-4 0 2 2 0 014 0zM7 10a2 2 0 11-4 0 2 2 0 014 0z"></path></svg>
                         </div>
@@ -249,9 +232,8 @@
             </div>
         </section>
 
-        <!-- About Section -->
         <section id="about" class="py-24 px-6 bg-white border-y border-psyche-navy/5">
-            <div class="max-w-4xl mx-auto text-center">
+            <div class="max-w-4xl mx-auto text-center opacity-0 translate-y-10 transition-all duration-1000 ease-out fade-element">
                 <img src="Logonobg.png" alt="Psyche Tourlife Icon" class="h-16 mx-auto mb-8 opacity-100" onerror="this.onerror=null; this.style.display='none';">
                 <h2 class="text-3xl md:text-5xl font-bold text-psyche-navy mb-8 leading-tight">
                     "เล่าจิตวิทยา<br>
@@ -263,10 +245,9 @@
             </div>
         </section>
 
-        <!-- Contact Section -->
         <section id="contact" class="py-24 px-6 bg-psyche-navy text-white">
             <div class="max-w-7xl mx-auto grid md:grid-cols-2 gap-16 items-start">
-                <div>
+                <div class="opacity-0 translate-y-10 transition-all duration-1000 ease-out fade-element">
                     <h2 class="text-4xl font-bold mb-6 text-psyche-bg">ติดต่องาน & สอบถามข้อมูล</h2>
                     <p class="text-psyche-bg/80 mb-10 leading-relaxed font-light">
                         สนใจเชิญเป็นวิทยากรบรรยาย จัดกระบวนการเรียนรู้ สปอนเซอร์คอนเทนต์ หรือมีข้อสงสัยเกี่ยวกับจิตวิทยา สามารถส่งอีเมลหาเราโดยตรง หรือกรอกแบบฟอร์มด้านข้างนี้ได้เลย!
@@ -305,7 +286,7 @@
                     </div>
                 </div>
                 
-                <div class="bg-psyche-bg p-8 rounded-3xl text-psyche-navy shadow-xl">
+                <div class="bg-psyche-bg p-8 rounded-3xl text-psyche-navy shadow-xl opacity-0 translate-y-10 transition-all duration-1000 ease-out fade-element">
                     <form id="contact-form" class="space-y-5">
                         <h3 class="text-2xl font-bold mb-6 border-b border-psyche-navy/10 pb-4 text-psyche-orange">ฝากข้อความถึงเรา</h3>
                         <div>
@@ -335,14 +316,12 @@
             </div>
         </section>
 
-        <!-- Footer -->
-        <footer class="py-8 px-6 bg-psyche-navy text-center text-psyche-bg/50 border-t border-white/10 relative">
+        <footer class="py-8 px-6 bg-psyche-navy text-center text-psyche-bg/50 border-t border-white/10 relative opacity-0 translate-y-10 transition-all duration-1000 ease-out fade-element">
             <img src="Logonobg.png" alt="Psyche Tourlife" class="h-20 mx-auto mb-4 opacity-100 brightness-0 invert" onerror="this.onerror=null; this.style.display='none';">
             <p class="mb-2 text-sm">&copy; 2026 psyche.tourlife. All rights reserved.</p>
         </footer>
     </div>
 
-    <!-- UI Scripts -->
     <script>
         // Mobile Menu Toggle
         const menuBtn = document.getElementById('menu-btn');
@@ -359,6 +338,34 @@
             const mailtoLink = `mailto:psychetourlife@gmail.com?subject=ติดต่อเพจ Psyche.Tourlife: ${encodeURIComponent(subject)}&body=${encodeURIComponent("ชื่อ/องค์กร: " + name + "\n\nรายละเอียด:\n" + message)}`;
             window.location.href = mailtoLink;
         }
+
+        // =====================================
+        // Fade-in Animation on Scroll Script
+        // =====================================
+        document.addEventListener("DOMContentLoaded", function() {
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    // ถ้าส่วนนั้นเลื่อนเข้ามาในหน้าจอแล้ว
+                    if (entry.isIntersecting) {
+                        // เอาคลาสที่ซ่อนออกไป
+                        entry.target.classList.remove('opacity-0', 'translate-y-10');
+                        // ใส่คลาสโชว์แบบเต็มๆ เข้ามา
+                        entry.target.classList.add('opacity-100', 'translate-y-0');
+                        
+                        // หยุดสังเกตการณ์เพื่อให้โชว์แล้วโชว์เลย (ไม่กระพริบตอนเลื่อนขึ้น)
+                        observer.unobserve(entry.target);
+                    }
+                });
+            }, { 
+                threshold: 0.15 // โผล่มา 15% ก็เริ่มทำงานเลย
+            });
+
+            // ค้นหาทุกชิ้นส่วนที่เราใส่คลาส fade-element ไว้ แล้วสั่งให้ observer ทำงาน
+            const hiddenElements = document.querySelectorAll('.fade-element');
+            hiddenElements.forEach((el) => {
+                observer.observe(el);
+            });
+        });
     </script>
 </body>
 </html>
