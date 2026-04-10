@@ -281,7 +281,7 @@
                     </div>
                 </div>
                 
-                <div class="bg-psyche-bg p-8 rounded-3xl text-psyche-navy shadow-xl opacity-0 translate-y-10 transition-all duration-[1500ms] ease-out fade-element">
+                <div class="bg-psyche-bg p-8 rounded-3xl text-psyche-navy shadow-xl opacity-0 translate-y-10 transition-all duration-[1500ms] ease-out fade-element relative">
                     <form id="contact-form" class="space-y-5">
                         <h3 class="text-2xl font-bold mb-6 border-b border-psyche-navy/10 pb-4 text-psyche-orange">ฝากข้อความถึงเรา</h3>
                         <div>
@@ -308,6 +308,14 @@
                         <p class="text-xs text-center text-psyche-navy/50 mt-4">*ปุ่มนี้จะเปิดแอปพลิเคชันอีเมลของคุณเพื่อส่งไปยัง psychetourlife@gmail.com</p>
                     </form>
                 </div>
+            </div>
+
+            <!-- Admin Shortcut Button -->
+            <div class="max-w-7xl mx-auto px-6 mt-12 flex justify-end opacity-0 translate-y-10 transition-all duration-[1500ms] ease-out fade-element">
+                <a href="admin.html" class="flex items-center text-psyche-bg/30 hover:text-psyche-pink transition-colors text-xs font-medium group">
+                    <svg class="w-3 h-3 mr-1 opacity-50 group-hover:opacity-100 transition-opacity" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z"></path></svg>
+                    Admin Access
+                </a>
             </div>
         </section>
 
@@ -352,7 +360,7 @@
                     }
                 });
             }, { 
-                threshold: 0.27 // โผล่มา 27% ก็เริ่มทำงานเลย
+                threshold: 0.15 // โผล่มานิดเดียวก็เริ่มทำงานเลย
             });
 
             // ค้นหาทุกชิ้นส่วนที่เราใส่คลาส fade-element ไว้ แล้วสั่งให้ observer ทำงาน
